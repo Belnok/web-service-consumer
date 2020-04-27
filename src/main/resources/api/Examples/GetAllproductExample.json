@@ -1,0 +1,38 @@
+
+[
+{
+"barcode": 1,
+"id": 10,
+"name": "milk",
+"productcatagory": "organic",
+"rate": 3.00
+},
+{
+"barcode": 11,
+"id": 11,
+"name": "milk",
+"productcatagory": "organic",
+"rate": 3.00
+},
+{
+"barcode": 12,
+"id": 12,
+"name": "milk",
+"productcatagory": "organic",
+"rate": 3.00
+},
+{
+"barcode": 13,
+"id": 13,
+"name": "milk",
+"productcatagory": "organic",
+"rate": 3.00
+},
+{
+"barcode": 14,
+"id": 14,
+"name": "milk",
+"productcatagory": "organic",
+"rate": 3.00
+}
+]

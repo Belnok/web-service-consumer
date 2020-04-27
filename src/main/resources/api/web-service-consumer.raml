@@ -1,0 +1,183 @@
+#%RAML 1.0
+baseUri: https://anypoint.mulesoft.com/mocking/api/v1/links/f8b2a11a-3a2a-4e26-b86a-f7dc1942d135/ # 
+title: web-service-consumer
+version: 1.0.0
+
+
+types:
+  Product: !include DataTypes/Products.raml
+  ProductID: !include DataTypes/ProductID.raml
+  Bills: !include DataTypes/Bills.raml
+  BillId: !include DataTypes/BillsID.raml
+  ProductCatag: !include DataTypes/ProdCatag.raml
+  ProductCatagID: !include DataTypes/ProdCatagID.raml
+
+
+
+/products:
+  description: retrieves all Product data
+  get:
+    responses:
+      200:
+        body:
+          application/json: 
+           type: Product[]
+           example: !include Examples/GetAllproductExample.json
+      404:
+        body:
+          application/json:
+            example:
+              "msg": "resource not found"
+
+  post:
+    description: creates a new product
+    responses:
+      201:
+        body:
+         application/json:
+          type: Product
+          example: !include Examples/CreateProductExample.json
+
+  /product_id:
+    description: retreives a specific product
+    get:
+     description: 
+     queryParameters:
+        product_id:
+          type: integer
+          required: true
+     responses:
+        200:
+         body:
+             application/json:
+               type: ProductID
+               example: !include Examples/GetProductExample.json
+    put:
+     description: updates a specific product
+     queryParameters:
+        product_id:
+          type: integer
+          required: true      
+     responses:
+      200:
+          body:
+            application/json:
+              type: ProductID
+              example: !include Examples/UpdateProductExample.json
+    delete:
+      description: deletes a specific product      
+      queryParameters:
+        product_id:
+          type: integer
+          required: true
+      responses:
+        200:
+          body:
+            application/json:
+              example:
+                "resource deleted"  
+/Bills:
+  get:
+    responses:
+      200:
+        body:
+          application/json:
+            type: Bills[]
+            example: !include Examples/GetAllBill.json
+  post:
+    responses:
+      200:
+        body:
+          application/json:
+            type: Bills
+            example: !include Examples/CreateBillexample.json
+
+  /Bill_id:
+    get:
+     description: 
+     queryParameters:
+        Bill_id:
+          type: integer
+          required: true
+     responses:
+        200:
+          body:
+            application/json:
+              type: BillId
+              example: !include Examples/GetBillExample.json
+    put:
+     description: 
+     queryParameters:
+        product_id:
+          type: integer
+          required: true            
+     responses:
+        200:
+          body:
+            application/json:
+              type: BillId
+              example: !include Examples/UpdateBillexample.Json
+    delete:
+      queryParameters:
+        Bill_id:
+          type: integer
+          required: true
+      responses:
+        200:
+          body:
+            application/json:
+              example:
+                "resource deleted"             
+
+/ProductCatagory:
+  get:
+    responses:
+      200:
+        body:
+          application/json:
+            type: ProductCatag[]
+            example: !include Examples/GetAllProductCatag.json
+  post:
+    responses:
+      200:
+        body:
+          application/json:
+            type: ProductCatag
+            example: !include Examples/CreateProductExample.json
+
+  /ProdCatag_id:
+    get:
+     description: 
+     queryParameters:
+        ProdCatag_id:
+          type: integer
+          required: true
+     responses:
+      200:
+          body:
+            application/json:
+              type: ProductCatagID
+              example: !include Examples/GetProdCatag.json
+    put:
+     description: 
+     queryParameters:
+        product_id:
+          type: integer
+          required: true            
+     responses:
+        200:
+          body:
+            application/json:
+              example: !include Examples/UpdateProdCatag.json
+    delete:
+      queryParameters:
+        ProdCatag_id:
+          type: integer
+          required: true
+      responses:
+        200:
+          body:
+            application/json:
+              example:
+                "resource deleted"      
+                           
